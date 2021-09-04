@@ -9,6 +9,18 @@ api = catapi.CatApi(api_key=os.getenv('CAT_API_KEY'))
 client = discord.Client() 
 
 @client.event
+async def on_ready():
+  pfp_path = 'CatPFP.jpg'
+
+  with open(pfp_path, "rb") as pfp:
+        await client.user.edit(password=None, avatar=pfp.read())
+
+  print("profile picture changed")
+  
+  return
+
+
+@client.event
 async def on_message(message):
   if message.author == client.user:
     return
