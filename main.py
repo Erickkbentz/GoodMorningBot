@@ -13,7 +13,7 @@ async def on_message(message):
   if message.author == client.user:
     return
   
-  command_list = ['gm', 'good morning', 'morning']
+  command_list = ['gm', 'good morning', 'morning', 'goodmorning']
 
   if message.content.lower() in command_list:
     results = await api.search_images(limit=1)
